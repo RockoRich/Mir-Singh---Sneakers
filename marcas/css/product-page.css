@@ -1,0 +1,403 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+body{
+    margin: 0;
+}
+
+.main{ 
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
+}
+
+.main .left{
+    background-color: black;
+}
+
+.main .right{
+    background-color: black;
+}
+
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+.sneakers-text .text a{
+    color: white;
+    text-decoration: none;
+
+}
+
+
+
+
+/* ################################## SNEA TITLE START ################################## */
+
+.snea-title{
+    width: fit-content;
+}
+
+.title-text-black {
+    font-size: 4.5em;
+    color: black;
+    font-family: 'Anton', sans-serif; 
+    text-decoration: underline black;
+}
+
+.end{
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* ################################## SNEA TITLE END ################################## */
+
+
+
+/* ################################## KERS TITLE START ################################## */
+
+.kers-title {
+    margin-top: 24px; /* Ajusta según sea necesario para centrar verticalmente */
+}
+
+.title-text-white {
+    font-size: 4.5em;
+    color: whitesmoke;
+    font-family: 'Anton', sans-serif;
+    text-decoration: underline whitesmoke; 
+}
+
+/* ################################## KERS TITLE END ################################## */
+
+
+
+/* ################################## SNEAKERS LINK START ################################## */
+.sneakers-text {
+    text-align: left;
+    margin-top: 5%; 
+    color: white;
+    font-size: 3em;
+    margin-left: 100px;
+    font-family: 'Anton', sans-serif;
+    margin-bottom: 20%;
+    text-decoration: underline white;
+}
+
+.sneakers-text .text .one {
+    animation: fadeInRightBig; 
+    animation-duration: 0.8s;
+    color: white;
+}
+
+
+.sneakers-text .text .two {
+    animation: fadeInRightBig; 
+    animation-duration: 1.1s;
+}
+
+
+.sneakers-text .text .three {
+    animation: fadeInRightBig; 
+    animation-duration: 1.4s;
+}
+
+
+.sneakers-text .text .four {
+    animation: fadeInRightBig; e
+    animation-duration: 1.7s;
+}
+
+.sneakers-text .text .five {
+    animation: fadeInRightBig; 
+    animation-duration: 2s;
+}
+
+.sneakers-text .text .six {
+    animation: fadeInRightBig; 
+    animation-duration: 2.3s;
+}
+
+
+
+
+/* ################################## SNEAKERS LINK END ################################## */
+
+.first-title{
+    font-size: 3em;
+    font-family: 'Anton', sans-serif;
+    margin-top: 7%;
+    margin-bottom: 3%;
+}
+
+
+.text-title{
+    font-size: 3em;
+    font-family: 'Anton', sans-serif;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+
+/* ################################## NIKE PART START ################################## */
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'poppins';
+}
+
+
+.box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3%;
+    
+}
+
+/* .container .card{
+    cursor: pointer;
+} */
+
+.container .btn{
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 9px;
+    border: 2px solid black;
+
+}
+
+.container .btn:hover{
+    background-color: white;
+    color: black;
+    
+}
+
+.left-title{
+    text-align: start;
+    color: whitesmoke;
+    margin-left: 100px;
+    text-decoration: underline black; 
+    font-size: 2em;
+    cursor: pointer;
+    font-family: 'Anton', sans-serif;
+}
+
+.right-title{
+    text-align: end;
+    color: whitesmoke;
+    margin-right: 100px;
+    text-decoration: underline black; 
+    font-size: 2em;
+    cursor: pointer;
+    font-family: 'Anton', sans-serif;
+}
+
+
+
+
+
+@media screen and (max-width: 320px) {
+    .card__data {
+      padding: 1rem;
+    }
+  }
+
+@media screen and (min-width: 768px) {
+    .card__content {
+      margin-inline: 1rem;
+    }
+  
+    .swiper-button-next,
+    .swiper-button-prev {
+      display: block;
+    }
+  }
+  
+  /* For large devices */
+  @media screen and (min-width: 1120px) {
+    .card__container {
+      max-width: 1120px;
+    }
+  
+    .swiper-button-prev {
+      left: -1rem;
+    }
+    .swiper-button-next {
+      right: -1rem;
+    }
+  }
+
+.footer{
+    /* display: grid;
+    grid-template-columns: 1fr 1fr; */
+    text-align: center;
+    padding-top: 2%;
+    font-size: 20px;
+    font-family: 'Anton', sans-serif;
+    padding-bottom: 2%;
+    color: white;
+    background-color: black;
+}
+
+/* svg {
+    width: 100%;
+    height: 100%;
+
+} */
+
+.icons{
+    cursor: pointer;
+    overflow: hidden;
+    position: fixed;
+    top: 3%;
+    left: 2%;
+    background-color: black;
+    display: grid;
+    width: max-content;
+    height: max-content;
+    z-index: 1;
+    border-radius: 9px;
+       
+}
+
+
+
+
+
+
+
+
+
+
+/* NAVBAR */
+
+.slide{
+    margin-left: 10px;
+    position: fixed;
+    height: 320px;
+    width: 80px;
+    background-color: white;
+    transition: 0.5s ease;
+    transform: translateX(-100px);
+    /* PARA HACER QUE VENGA DESDE ARRIBA SE CAMBIA LA X POR Y translateX(-400px) en este caso porque el height del item es de 380 */
+    border-radius: 6px;
+}
+
+
+ul li{
+    list-style: none;
+}
+
+
+input{
+    display: none;
+    visibility: hidden;
+    -webkit-appearance: none;
+}
+
+.toogle{
+    position: fixed;
+    z-index: 1;
+    top: 40px;
+    left: 35px;
+    cursor: pointer;
+    background-color: white;
+    width: max-content;
+    height: 33px;
+    border-radius: 3px;
+}
+
+input:checked ~ .slide{
+    transform: translateX(0); 
+    /* PARA HACER QUE VENGA DESDE ARRIBA SE CAMBIA LA X POR Y */
+}
+
+input:checked ~ .toogle svg{
+    background-color: black;
+    height: 33px;
+    border-radius: 3px;
+    fill: white;
+    
+}
+
+.icon1{
+    position: absolute;
+    top: 75px;
+    left: 25px;
+}
+
+.icon2{
+    position: absolute;
+    top: 125px;
+    left: 25px;
+}
+
+.icon3{
+    position: absolute;
+    top: 170px;
+    left: 25px;
+}
+
+.icon4{
+    position: absolute;
+    top: 220px;
+    left: 25px;
+}
+
+.icon5{
+    position: absolute;
+    top: 265px;
+    left: 25px;
+}
+
+
+
+.hola{
+    position: absolute;
+    top: 190%;
+
+}
+
+/* NAVBAR END */
+
+
+
+
+.heartIcon svg{
+    position: fixed;
+    margin: -6.5% 5% 5% 25%;
+    /* right: 30%; */
+    /* margin-left: 23%;
+    margin-top: 10px; */
+
+}
+
+.heartIcon svg:hover{
+    fill: red;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+
+
+.productImgs{
+    display: flex;
+    justify-content: start;
+}
+
+.productImgs img{
+    width: 24rem;
+    margin-left: 10%;
+    margin-bottom: 5%;
+    border-radius: 9px;
+    cursor: pointer;
+}

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.5.8/swiper-bundle.min.css">
+    <style>
+        /* Estilos opcionales para la visualización */
+        .cart {
+            background-color: #fff;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        .cart-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .cart-item img {
+            width: 50px;
+            margin-right: 10px;
+        }
+        .cart-item button {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <section class="container">
+        <div class="card__container swiper">
+            <div class="card__content">
+                <div class="swiper-wrapper">
+                    <div class="card swiper-slide" style="width: 23em;">
+                        <div class="card-img-top">
+                            <img src="img/nike/futbol/f1/1.png" alt="image" class="card-img-top" style="width: 50px;">
+                            <div class="card__shadow"></div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">NikePremier 3</h5>
+                            <p class="card-text">109,99 €</p>
+                            <button class="btn addToCart" data-name="NikePremier 3" data-price="109.99" data-img="img/nike/futbol/f1/1.png">Añadir a la cesta</button>
+                        </div>
+                    </div>
+                    <!-- Más tarjetas aquí -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="cart">
+        <h2>Carrito de Compras</h2>
+        <p id="cartCountText">Cantidad de Productos en el Carrito: 0</p>
+        <ul id="cartItems">
+            <!-- Los elementos seleccionados se mostrarán aquí -->
+        </ul>
+        <h3>Total: <span id="cartTotal">0.00 €</span></h3>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.5.8/swiper-bundle.min.js"></script>
+    <script>
+
+const addToCartButtons = document.querySelectorAll('.addToCart');
+        const cartItemsElement = document.getElementById('cartItems');
+        const cartTotalElement = document.getElementById('cartTotal');
+        const cartCountText = document.getElementById('cartCountText');
+        let cartTotal = 0;
+
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', addToCart);
+        });
+
+        function updateCartCount() {
+            const itemCount = document.querySelectorAll('.cart-item').length;
+            cartCountText.textContent = `Cantidad de Productos en el Carrito: ${itemCount}`;
+        }
+
+        function addToCart(event) {
+            event.preventDefault();
+            const itemName = event.target.dataset.name;
+            const itemPrice = parseFloat(event.target.dataset.price);
+            const itemImage = event.target.dataset.img;
+            cartTotal += itemPrice;
+            cartTotalElement.textContent = cartTotal.toFixed(2) + ' €';
+
+            const newItem = document.createElement('li');
+            newItem.classList.add('cart-item');
+            newItem.innerHTML = `
+                <img src="${itemImage}" alt="${itemName}">
+                <span>${itemName} - ${itemPrice.toFixed(2)} €</span>
+                <button class="btn btn-remove">Eliminar</button>
+                <button class="btn btn-increase">+</button>
+            `;
+            cartItemsElement.appendChild(newItem);
+            updateCartCount();
+
+            const removeButton = newItem.querySelector('.btn-remove');
+            removeButton.addEventListener('click', removeItem);
+
+            const increaseButton = newItem.querySelector('.btn-increase');
+            increaseButton.addEventListener('click', increaseQuantity);
+        }
+
+        function removeItem(event) {
+            const item = event.target.parentElement;
+            const itemPrice = parseFloat(item.querySelector('span').textContent.split(' - ')[1].replace(' €', ''));
+            cartTotal -= itemPrice;
+            cartTotalElement.textContent = cartTotal.toFixed(2) + ' €';
+            item.remove();
+            updateCartCount();
+        }
+
+        function increaseQuantity(event) {
+            const item = event.target.parentElement;
+            const itemPrice = parseFloat(item.querySelector('span').textContent.split(' - ')[1].replace(' €', ''));
+            cartTotal += itemPrice;
+            cartTotalElement.textContent = cartTotal.toFixed(2) + ' €';
+            updateCartCount(); // Actualizar el texto de la cantidad en el carrito
+        }
+
+        // const addToCartButtons = document.querySelectorAll('.addToCart');
+        // const cartItemsElement = document.getElementById('cartItems');
+        // const cartTotalElement = document.getElementById('cartTotal');
+        // const cartCountText = document.getElementById('cartCountText');
+        // let cartTotal = 0;
+
+        // addToCartButtons.forEach(button => {
+        //     button.addEventListener('click', addToCart);
+        // });
+
+        // function updateCartCount() {
+        //     const itemCount = document.querySelectorAll('.cart-item').length;
+        //     cartCountText.textContent = `Cantidad de Productos en el Carrito: ${itemCount}`;
+        // }
+
+        // function addToCart(event) {
+        //     event.preventDefault();
+        //     const itemName = event.target.dataset.name;
+        //     const itemPrice = parseFloat(event.target.dataset.price);
+        //     const itemImage = event.target.dataset.img;
+        //     cartTotal += itemPrice;
+        //     cartTotalElement.textContent = cartTotal.toFixed(2) + ' €';
+
+        //     const newItem = document.createElement('li');
+        //     newItem.classList.add('cart-item');
+        //     newItem.innerHTML = `
+        //         <img src="${itemImage}" alt="${itemName}">
+        //         <span>${itemName} - ${itemPrice.toFixed(2)} €</span>
+        //         <button class="btn btn-remove">Eliminar</button>
+        //         <button class="btn btn-increase">+</button>
+        //     `;
+        //     cartItemsElement.appendChild(newItem);
+        //     updateCartCount();
+
+        //     const removeButton = newItem.querySelector('.btn-remove');
+        //     removeButton.addEventListener('click', removeItem);
+
+        //     const increaseButton = newItem.querySelector('.btn-increase');
+        //     increaseButton.addEventListener('click', increaseQuantity.bind(null, itemPrice));
+        // }
+
+        // function removeItem(event) {
+        //     const item = event.target.parentElement;
+        //     const itemPrice = parseFloat(item.querySelector('span').textContent.split(' - ')[1].replace(' €', ''));
+        //     cartTotal -= itemPrice;
+        //     cartTotalElement.textContent = cartTotal.toFixed(2) + ' €';
+        //     item.remove();
+        //     updateCartCount();
+        // }
+
+        // function increaseQuantity(itemPrice, event) {
+        //     cartTotal += itemPrice;
+        //     cartTotalElement.textContent = cartTotal.toFixed(2) + ' €';
+        // }
+        
+        // increaseButton.addEventListener('click', function() {
+        //     increaseQuantity(itemPrice);
+        // });
+
+        //         function increaseQuantity(event) {
+        //     const item = event.target.parentElement;
+        //     const itemPrice = parseFloat(item.querySelector('span').textContent.split(' - ')[1].replace(' €', ''));
+        //     cartTotal += itemPrice;
+        //     cartTotalElement.textContent = cartTotal.toFixed(2) + ' €';
+        //     updateCartCount(); // Actualizar el texto de la cantidad en el carrito
+        // }
+
+
+
+    </script>
+</body>
+</html>
