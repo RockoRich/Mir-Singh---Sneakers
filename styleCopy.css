@@ -157,6 +157,22 @@ body{
     text-decoration: underline whitesmoke;
 }
 
+.Y{
+    font-size: 20px;
+    font-family: 'Anton', sans-serif;
+    position: absolute;
+    overflow: hidden;
+    color: white;
+    top: 19%;
+    right: 2%;
+    text-decoration: underline whitesmoke;
+}
+
+.Y a {
+    color: white;
+    text-decoration: none;
+}
+
 .R a{
     color: white;
     text-decoration: none;
