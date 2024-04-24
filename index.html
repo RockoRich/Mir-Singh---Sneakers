@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="styleCopy.css">
     <link rel="stylesheet" href="login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="config.js"></script> 
 </head>
     <!-- <body class="h-100 m-0"> -->
 
@@ -129,7 +130,7 @@
                 <div class="formulario">
                   <h1 class="formTitle">YOUTUBE API</h1><br>
                   <div class="group">
-                    <input required="" type="mail" class="inputForm" id="searchVideos" aria-describedby="mailHelp">
+                    <input required="" type="text" class="inputForm" id="searchVideos">
                     <span class="bar"></span>
                     <label class="pruebaLabel form-label" >Search videos</label>
                   </div>
@@ -259,7 +260,6 @@
         
     </div>
 
-
     <script>
         $(document).ready(function() {
             $('#myModal').modal('show')
@@ -289,11 +289,11 @@
             controls = false
         }
         
-    </script>
-    <script src="config.js"></script>
+    </script>  
+    
     <script>
         function searchVideos() {
-            var searchInput = document.getElementById("search").value;
+            var searchInput = document.getElementById("searchVideos").value;
             var url = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=${searchInput}&key=${config.API_KEY}`;
     
             fetch(url)
@@ -317,8 +317,8 @@
     
                 var videoElement = `
                     <div class="video">
-                        <h2>${videoTitle}</h2>
-                        <iframe width="320" height="180" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>
+                        <p  style="margin-top: 5%;">${videoTitle}</p>
+                        <iframe width="fit-content" height="fit-content" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen style="border-radius:9px;"></iframe>
                     </div>
                 `;
     

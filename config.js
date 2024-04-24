@@ -1,5 +1,9 @@
 const config = {
-    API_KEY: "AIzaSyC8RBnQm-aDV09E_4EqswyuKw82KupemCM"
+    API_KEY: "AIzaSyCEiuaBVjIF3-IWY6Fi7AJAk6b2HhjqFCM"
 };
 
-export default config;
+// Exportamos el objeto config
+if (typeof module !== 'undefined') {
+    module.exports = config;
+}
+
