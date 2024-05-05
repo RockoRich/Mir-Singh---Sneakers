@@ -146,6 +146,17 @@ body{
     text-decoration: underline whitesmoke;
 }
 
+.G{
+    font-size: 20px;
+    font-family: 'Anton', sans-serif;
+    position: absolute;
+    overflow: hidden;
+    color: white;
+    top: 24%;
+    right: 2%;
+    text-decoration: underline whitesmoke;
+}
+
 .V{
     font-size: 20px;
     font-family: 'Anton', sans-serif;
@@ -184,6 +195,11 @@ body{
 }
 
 .L a{
+    color: white;
+    text-decoration: none;
+}
+
+.G a{
     color: white;
     text-decoration: none;
 }

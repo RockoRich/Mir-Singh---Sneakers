@@ -148,6 +148,24 @@
             </div>
         </div>
       </div>
+
+      <div class="modal fade" id="myModal5" tabindex="-1" aria-labelledby="exampleModalLiveLabel" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" style="background-color: transparent; border: 0;">
+              <div class="register">
+                <div class="formulario">
+                  <h1 class="formTitle">GEO LOCATION API</h1>
+                  <div id="getLocation"></div><br>
+                  <button type="submit" class="btn mt-2" onclick="getLocation()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                        <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
+                    </svg>
+                  </button>           
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
     
     <div class="main">
 
@@ -230,6 +248,7 @@
                 <span class="L"><a href="#" data-bs-toggle="modal" data-bs-target="#myModal2">LOGIN</a></span>
                 <span class="V"><a href="#" data-bs-toggle="modal" data-bs-target="#myModal3">VIDEO AD</a></span>
                 <span class="Y"><a href="#" data-bs-toggle="modal" data-bs-target="#myModal4">YOUTUBE API</a></span>
+                <span class="G"><a href="#" data-bs-toggle="modal" data-bs-target="#myModal5">GEOLOCATION API</a></span>
             </div>
 
             <div class="start">
@@ -324,6 +343,23 @@
     
                 videoContainer.innerHTML += videoElement;
             });
+        }
+    </script>
+
+    <script>
+        const x = document.getElementById("getLocation");
+        
+        function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else { 
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+        }
+        
+        function showPosition(position) {
+        x.innerHTML = "Latitude: " + position.coords.latitude + 
+        "<br>Longitude: " + position.coords.longitude;
         }
     </script>
 
